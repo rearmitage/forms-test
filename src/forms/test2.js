@@ -3,6 +3,7 @@ import Formsy from 'formsy-react'
 import FormsyText from 'formsy-material-ui/lib/FormsyText'
 import RaisedButton from 'material-ui/RaisedButton'
 import MoneyField from '../fields/moneyField'
+import Select from '../fields/select'
 
 
 const styles = {
@@ -44,11 +45,11 @@ class TestForm extends Component {
       }
     
       submitForm = (data) => {
-        alert(JSON.stringify(data, null, 4));
+        alert(JSON.stringify(data, null, 4))
       }
     
       notifyFormError = (data) => {
-        console.error('Form error:', data);
+        console.error('Form error:', data)
       }
     
     render() {
@@ -65,7 +66,6 @@ class TestForm extends Component {
                     name="name"
                     validations="isWords"
                     validationError={wordsError}
-                    required
                     hintText="What is your name?"
                     floatingLabelText="Name"
                     fullWidth
@@ -78,17 +78,14 @@ class TestForm extends Component {
                     floatingLabelText="Age (optional)"
                     fullWidth
                 />
-                <FormsyText
-                    name="url"
-                    validations="isUrl"
-                    validationError={urlError}
-                    required
-                    hintText="http://www.example.com"
-                    floatingLabelText="URL"
-                    updateImmediately
+                <MoneyField 
+                    name="money"
+                    hintText="How much is this?"
+                    floatingLabelText="Money"
+                    value={'1000'}
                     fullWidth
                 />
-                <MoneyField />
+                <Select />
                 <RaisedButton
                     style={submitStyle}
                     type="submit"
