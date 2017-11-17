@@ -18,7 +18,7 @@ const persons = [
 
 export default class SelectFieldExample extends Component {
   state = {
-    values: [],
+    // values: [],
   }
 
   handleChange = (e, values) => this.setState({ values })
@@ -35,7 +35,7 @@ export default class SelectFieldExample extends Component {
   }
 
   menuItems(persons) {
-    const { values } = this.state
+    // const { values } = this.state
     return persons.map((person, i) => (
       <MenuItem
         key={person.value}

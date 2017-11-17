@@ -3,7 +3,9 @@ import Formsy from 'formsy-react'
 import FormsyText from 'formsy-material-ui/lib/FormsyText'
 import RaisedButton from 'material-ui/RaisedButton'
 import MoneyField from '../fields/moneyField'
+import Hmda from '../fields/hmda'
 import Select from '../fields/select'
+import Dependents from '../fields/dependents'
 
 
 const styles = {
@@ -20,10 +22,25 @@ const styles = {
     },
 }
 
+const races = [
+    {
+        name: 'White',
+        subCatagories: ['Scottish', 'Irish']
+    },
+    {
+        name: 'Hispanic',
+        subCatagories: ['puertorican', 'hispanic', 'spanish', 'other']
+    },
+    {
+        name: 'NativeAmerican',
+        subCatagories: ['other']
+    }
+]
+
 const errorMessages = {
     wordsError: "Please only use letters",
     numericError: "Please provide a number",
-    urlError: "Please provide a valid URL",
+    // urlError: "Please provide a valid URL",
 }
 
 class TestForm extends Component {
@@ -53,8 +70,8 @@ class TestForm extends Component {
       }
     
     render() {
-        const { paperStyle, switchStyle, submitStyle } = styles
-        const { wordsError, numericError, urlError } = errorMessages
+        const { submitStyle } = styles
+        const { wordsError, numericError } = errorMessages
         return(
             <Formsy.Form
                 onValid={this.enableButton}
@@ -86,6 +103,10 @@ class TestForm extends Component {
                     fullWidth
                 />
                 <Select />
+                <Hmda
+                    fields={races}
+                />
+                <Dependents />
                 <RaisedButton
                     style={submitStyle}
                     type="submit"
